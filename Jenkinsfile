@@ -5,7 +5,7 @@ pipeline {
 	    steps {
 		git 'https://github.com/gesusu/java-project.git'
 		sh 'ant -f test.xml -v'
-		junit 'reports/*.xml
+		junit 'reports/*.xml'
 	   }
 	  }
 	stage (‘Build’) {
