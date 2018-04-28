@@ -22,7 +22,7 @@ pipeline {
                   sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
              }
 	}
-		
+	}	
     }
  }
 
