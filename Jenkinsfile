@@ -20,7 +20,7 @@ pipeline {
 	   steps {
 		echo "Copying to s3 bucket gbjenkins.com"
 		withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    s3Upload(file:'rectangle-2.jar', bucket:'gbjenkins', path:'/workspace/java-pipeline/dist/rectangle-2.jar')
+                    s3Upload(file:'rectangle-2.jar', bucket:'gbjenkins.com', path:'/workspace/java-pipeline/dist/rectangle-2.jar')
         }
 	   }
 		
