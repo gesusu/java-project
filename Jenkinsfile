@@ -8,7 +8,7 @@ pipeline {
 	    steps {
 		git credentialsId: 'github-credential', url: 'https://github.com/gesusu/java-project.git'
 		sh 'ant -f test.xml -v'
-		junit 'reports/*.xml'
+		
 	   }
 	  }
 	stage (‘Build’) {
