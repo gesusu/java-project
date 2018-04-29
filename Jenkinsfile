@@ -19,7 +19,7 @@ pipeline {
 	stage (‘Deploy’) {
 	   steps {
 		echo "Copying to s3 bucket gbjenkins.com"
-		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle* s3://gbjenkins.com/jenkinsdist/rectangle*'
+		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle* s3://gbjenkins.com/jenkinsdist/**.jar'
           }
 	}
         stage (‘Report’) {
