@@ -15,7 +15,13 @@ pipeline {
 	   steps {
 		sh 'ant -f build.xml -v'
 	 }
-	} 
+	}
+	stage (‘Deploy’) {
+	   steps {
+		echo "Copying to s3 bucket gbjenkins.com"
+		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle* s3://gbjenkins.com/Assignment10/
+          }
+	}
     }
  }
 
