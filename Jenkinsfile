@@ -2,11 +2,15 @@ properties([pipelineTriggers([githubPush()])])
 
 
 pipeline {   
-  agent any 
+  agent {
+     node{
+       label'linux'
+    }
+  }
     stages {
        stage(‘Test’) {
 	    steps {
-		git 'https://github.com/gesusu/java-project.git'
+		git credentialsId: 'github-credential', url: 'https://github.com/gesusu/java-project.git'
 		sh 'ant -f test.xml -v'
 		
 	   }
