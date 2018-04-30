@@ -26,6 +26,14 @@ pipeline {
 		sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle* s3://gbjenkins.com/Assignment10/'
           }
 	}
+        stage (‘Report’) {
+	   steps {
+	      echo "Generating a report of the CloudFormation stack resources of the environment"
+	      withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-aws', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                  sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
+        }
+	   }
+     }
     }
  }
 
