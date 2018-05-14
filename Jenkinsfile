@@ -5,7 +5,7 @@ node('linux'){
 
     stage(‘Test’) {
 	    
-		git credentialsId: 'github-credential', url: 'https://github.com/gesusu/seis665-practice.git'
+		git credentialsId: 'github-credential', url: 'https://github.com/gesusu/java-project.git'
 		sh 'ant -f test.xml -v'
 	}
 	 
