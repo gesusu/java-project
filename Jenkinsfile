@@ -6,7 +6,7 @@ node('linux'){
         stage(‘Test’) {
 	    
 		git credentialsId: 'github-credential', url: 'https://github.com/gesusu/java-project.git'
-		sh 'ant -f test.xml -v'
+		sh 'ant -buildfile test.xml -v'
 		junit 'reports/result.xml'
 		
         }
